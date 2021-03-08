@@ -1,15 +1,12 @@
-from app import app, datetime
+from app import app, datetime, request
 
 '''
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
-
-@app.route('/user')
-def user_page():
-    return app.send_static_file('index.html')
 '''
 
-@app.route('/api/time')
-def time_api():
-    return { 'datetime':  datetime.now()}
+@app.route('/api/python', methods=['POST'])
+def get_python_code():
+    code = request.json['pyCode']
+    return {'output': code}

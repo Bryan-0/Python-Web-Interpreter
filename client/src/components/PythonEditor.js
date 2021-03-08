@@ -1,10 +1,14 @@
-import React from 'react';
-import './PythonEditor.css';
+import React, { useState } from 'react';
+import './styles/PythonEditor.css';
 
-const PythonEditor = () => {
+const PythonEditor = ({ onEditorChange }) => {
+
+    const sendCode = (e) => {
+        onEditorChange(e.currentTarget.textContent);
+    }
+
     return (
-        <div className="pythonEditorDiv" contentEditable={true}>
-            print('Hello world')
+        <div onInput={(e) => sendCode(e)} className="pythonEditorDiv" contentEditable={true}>
         </div>
     )
 };

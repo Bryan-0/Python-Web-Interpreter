@@ -1,9 +1,10 @@
 import React from 'react';
-import './PythonInterpreter.css';
+import './styles/PythonInterpreter.css';
 
 const PythonInterpreter = () => {
     return (
         <div className="pythonInterpreterDiv">
+            Output:<br />
             Hello world!
         </div>
     )
