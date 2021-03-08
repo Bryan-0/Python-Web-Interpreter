@@ -1,0 +1,11 @@
+.pythonInterpreterDiv {
+    background-color: black;
+    color: white;
+    height: 80vh;
+    width: 60vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
