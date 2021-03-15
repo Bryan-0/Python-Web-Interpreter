@@ -4,26 +4,30 @@ import PythonEditor from './PythonEditor';
 import PythonInterpreter from './PythonInterpreter';
 
 import axios from 'axios';
+import './styles/App.css';
 
 const App = () => {
 
-    const [pyCode, setPyCode] = useState('');
+    const [pyCode, setPyCode] = useState('print("Hello World")');
     const [pyCodeOutput, setPyCodeOutput] = useState('');
     const [isLoading, setLoading] = useState(false);
 
     const onEditorChange = (pythonCode) => {
         setPyCode(pythonCode);
-        //console.log(pyCode);
     };
 
+    const removeTempFile = (filename) => {
+        axios.post('http://localhost:5000/api/python/remove', { filename });
+    }
+
     const onRunCode = async () => {
-        if (!pyCode) return;
         setLoading(true);
 
-        axios.post('http://localhost:5000/api/python', { pyCode }).then(({ data }) => {
-            console.log(data.output);
+        axios.post('http://localhost:5000/api/python/interprete', { pyCode }).then(({ data }) => {
+            console.log(data);
             setLoading(false);
             setPyCodeOutput(data.output);
+            removeTempFile(data.filename)
         });
     }
 

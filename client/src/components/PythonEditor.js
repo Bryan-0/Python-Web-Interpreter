@@ -4,11 +4,14 @@ import './styles/PythonEditor.css';
 const PythonEditor = ({ onEditorChange }) => {
 
     const sendCode = (e) => {
-        onEditorChange(e.currentTarget.textContent);
+        onEditorChange(e.currentTarget.innerHTML);
     }
 
     return (
-        <div onInput={(e) => sendCode(e)} className="pythonEditorDiv" contentEditable={true}>
+        <div>
+            <div onInput={(e) => sendCode(e)} contentEditable={true} className="pythonEditorDiv">
+                print("Hello World")
+            </div>
         </div>
     )
 };
