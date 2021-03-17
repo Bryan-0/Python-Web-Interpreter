@@ -9,7 +9,7 @@ import './styles/App.css';
 const App = () => {
 
     const [pyCode, setPyCode] = useState('print("Hello World")');
-    const [pyCodeOutput, setPyCodeOutput] = useState('');
+    const [pyCodeOutput, setPyCodeOutput] = useState('Hello World');
     const [isLoading, setLoading] = useState(false);
 
     const onEditorChange = (pythonCode) => {
@@ -45,11 +45,11 @@ const App = () => {
             <Row>
                 <Col>
                     <p></p>
-                    <PythonEditor onEditorChange={onEditorChange} />
+                    <PythonEditor onEditorChange={onEditorChange} styledCode={pyCode} />
                 </Col>
                 <Col>
                     <p></p>
-                    <PythonInterpreter />
+                    <PythonInterpreter pyCodeOutput={pyCodeOutput} />
                 </Col>
             </Row>
         </Container>

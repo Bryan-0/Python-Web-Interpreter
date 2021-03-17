@@ -1,11 +1,11 @@
 import React from 'react';
 import './styles/PythonInterpreter.css';
 
-const PythonInterpreter = () => {
+const PythonInterpreter = ({ pyCodeOutput }) => {
     return (
         <div className="pythonInterpreterDiv">
             Output:<br />
-            Hello world!
+            { pyCodeOutput }
         </div>
     )
 }

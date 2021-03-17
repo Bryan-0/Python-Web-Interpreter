@@ -10,6 +10,7 @@ def index():
 def get_python_code():
     code = request.json['pyCode']
     fixed_Code = clean_Code(code)
+    print(fixed_Code)
 
     return run_Code(fixed_Code)
 
@@ -22,7 +23,7 @@ def remove_python_file():
 
 # Utility
 def clean_Code(code) -> str:
-    return str(code).replace("</div>", "\n").replace("<div>", "").replace("<br>", "\n").replace("&gt;", ">").replace("&lt;", "<")
+    return str(code).replace("</div>", "\n").replace("<div>", "\n").replace("<br>", "\n").replace("&gt;", ">").replace("&lt;", "<")
 
 def run_Code(code) -> dict:
     tempfile = str(uuid4()) + ".py"
